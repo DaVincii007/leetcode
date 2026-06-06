@@ -1,0 +1,21 @@
+name: Python Test
+
+on: [push, pull_request]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:bookworm-slim
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          echo Nothing to do for now
+
+      - name: Execute Python commands
+        run: |
+          python3 ./blind_75/004_49_Group_Anagrams.py
