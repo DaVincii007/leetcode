@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/group-anagrams/description/
 
+from pathlib import Path
 import utils
 
 def groupAnagrams(strs:list[str]) -> list[list[str]]:    
@@ -20,10 +21,10 @@ def groupAnagrams(strs:list[str]) -> list[list[str]]:
 test_cases = [ ["eat","tea","tan","ate","nat","bat"], [""], ["a"]]
 expected_outputs=[ [["bat"],["nat","tan"],["ate","eat","tea"]], [[""]], [["a"]] ]
 
-print(utils.Test_Case_Result.Pass.value)
+print(f"\n{Path(__file__).name}")
 
 for (index, test_case) in enumerate(test_cases):
     output = groupAnagrams(test_case)
     result = utils.Test_Case_Result.Pass.value if sorted([sorted(sublist) for sublist in output]) == sorted(sorted([sorted(sublist) for sublist in expected_outputs[index]])) else utils.Test_Case_Result.Fail.value
-    colour = utils.terminal_text_colours.GREEN.value if result == utils.Test_Case_Result.Pass.value else utils.terminal_text_colours.RED.value
-    print(f"{colour}{index+1}. {test_case}: output {output} => {result}{utils.terminal_text_colours.RESET.value}")
+    colour = utils.Terminal_Text_Colours.GREEN.value if result == utils.Test_Case_Result.Pass.value else utils.Terminal_Text_Colours.RED.value
+    print(f"{colour}{index+1}. {test_case}: output {output} => {result}{utils.Terminal_Text_Colours.RESET.value}")
