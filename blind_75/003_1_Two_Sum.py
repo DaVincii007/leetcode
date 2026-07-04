@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/two-sum/description/
+from pathlib import Path
 
 def twoSum(nums: list[int], target: int) -> list[int]:
     nums_dict = {}
@@ -16,6 +17,6 @@ def twoSum(nums: list[int], target: int) -> list[int]:
 
 
 test_cases = [ [[2,7,11,15], 9], [[3,2,4], 6], [[3,3], 6] ]
-
+print(f"\n{Path(__file__).name}")
 for test_case in test_cases:
     print(twoSum(test_case[0], test_case[1]))

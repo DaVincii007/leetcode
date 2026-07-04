@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/valid-anagram/description/
+from pathlib import Path
 
 def isAnagram(s: str, t: str) -> bool:
     s_dict = {}
@@ -23,6 +24,6 @@ def isAnagram(s: str, t: str) -> bool:
 
 
 test_cases=[ ["anagram", "nagaram"], ["rat", "car"] ]
-
+print(f"\n{Path(__file__).name}")
 for test_case in test_cases:
     print(isAnagram(test_case[0], test_case[1]))
