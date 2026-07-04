@@ -18,4 +18,4 @@ jobs:
 
       - name: Execute Python commands
         run: |
-          python3 ./blind_75/004_49_Group_Anagrams.py
+          for f in ./blind_75/*.py; do python3 "$f" & done; wait
