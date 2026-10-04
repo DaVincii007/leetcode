@@ -1,5 +1,8 @@
 # https://leetcode.com/problems/top-k-frequent-elements/description/
 
+from pathlib import Path
+import utils
+
 def topKFrequent(nums: list[int], k: int) -> list[int]:
         nums_dict = {}
         freq_dict = {}
@@ -32,4 +35,13 @@ def topKFrequent(nums: list[int], k: int) -> list[int]:
                     break
         return ret
 
-print(topKFrequent([1,1,1,2,2,3], 2))
+test_cases = [ [[1,1,1,2,2,3], 2], [[1], 1], [[1,2,1,2,1,2,3,1,3,2], 2], [[-1,-1], 1], [[1,1], 1], [[5,3,1,1,1,3,73,1], 2]]
+expected_outputs=[ [1,2], [1], [1,2], [-1], [1], [1,3]]
+
+print(f"\n{Path(__file__).name}")
+
+for (index, test_case) in enumerate(test_cases):
+    output = topKFrequent(test_case[0], test_case[1])
+    result = utils.Test_Case_Result.Pass.value if output == expected_outputs[index] else utils.Test_Case_Result.Fail.value
+    colour = utils.Terminal_Text_Colours.GREEN.value if result == utils.Test_Case_Result.Pass.value else utils.Terminal_Text_Colours.RED.value
+    print(f"{colour}{index+1}. {test_case}: output {output} => {result}{utils.Terminal_Text_Colours.RESET.value}")
