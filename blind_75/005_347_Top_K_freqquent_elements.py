@@ -23,16 +23,13 @@ def topKFrequent(nums: list[int], k: int) -> list[int]:
         ret = [] 
         sorted_freq = sorted(freq_dict.keys())
         
-        count = k
-        popped = 0
-        while count>0:
-            highest_freq_elements = freq_dict[sorted_freq[-1-(popped)]]
+        while k>0:
+            highest_freq_elements = freq_dict[sorted_freq.pop(-1)]
             for num in highest_freq_elements:
                 ret.append(num)
-                count-=1
-                if count==0:
+                k-=1
+                if k==0:
                     break
-            popped += 1
         return ret
 
 print(topKFrequent([1,1,1,2,2,3], 2))
